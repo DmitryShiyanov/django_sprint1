@@ -44,16 +44,17 @@ posts: list = [
 
 ]
 
+posts_dict = {post['id']: post for post in posts}
 
 def index(request):
     template_name = 'blog/index.html'
-    context = {'posts': posts}
+    context = {'posts': posts[::-1]}
     return render(request, template_name, context)
 
 
-def post_detail(request, id):
+def post_detail(request, post_id):
     template_name = 'blog/detail.html'
-    context = {'post': posts[id]}
+    context = {'post': posts_dict.get(post_id)}
     return render(request, template_name, context)
 
 

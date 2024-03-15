@@ -4,9 +4,8 @@
 
 {% block content %}
         <h1>Лента записей</h1>                        
-        <!-- Перебираем в цикле все посты -->
         <hr>
-        {% for post in posts reversed %}
+        {% for post in posts %}
         <article>
           <ul>
             <li>
@@ -19,7 +18,6 @@
               Категория: <a href="{% url 'blog:category_posts' post.category %}">{{ post.category }}</a>
             </li>
           </ul>          
-          <!-- Первые 10 слов -->
           <p>
             {{ post.text|truncatewords:10 }}
           </p>
