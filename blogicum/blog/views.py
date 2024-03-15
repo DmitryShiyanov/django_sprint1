@@ -46,6 +46,7 @@ posts: list = [
 
 posts_dict = {post['id']: post for post in posts}
 
+
 def index(request):
     template_name = 'blog/index.html'
     context = {'posts': posts[::-1]}
