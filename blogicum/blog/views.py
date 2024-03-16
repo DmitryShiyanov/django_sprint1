@@ -56,6 +56,11 @@ def index(request):
 def post_detail(request, post_id):
     template_name = 'blog/detail.html'
     context = {'post': posts_dict.get(post_id)}
+    post = posts_dict.get(post_id)
+    if post:
+        context = {'post': post}
+    else:
+        raise ValueError('УКАЗАННОГО ID ПОСТА НЕ СУЩЕСТВУЕТ')
     return render(request, template_name, context)
 
 

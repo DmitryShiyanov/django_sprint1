@@ -7,5 +7,3 @@ def about(request):
 
 def rules(request):
     return render(request, template_name='pages/rules.html')
-
-# Create your views here.
